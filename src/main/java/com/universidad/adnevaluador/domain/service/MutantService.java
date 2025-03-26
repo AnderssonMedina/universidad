@@ -48,12 +48,12 @@ public class MutantService {
             countMatches = 0;
             //se evalua si existe coincidencias horizontales, si existen más de 1 entonces guarda en base de datos y hace el retorno de la respuesta al controller
             if (evaluateHorizontalPattern(dna) > 1) {
-                //resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), true));
+                resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), true));
                 return true;
             }
             //Evalua coincidencias Verticales
             else if (evaluateVerticalPattern(dna) > 1) {
-               // resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), true));
+               resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), true));
                 return true;
              //Evalua coincidencias diagonales
             } else if (evaluateDiagonal(dna) > 1) {
@@ -61,7 +61,7 @@ public class MutantService {
                 return true;
             }
 
-           // resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), false));
+           resultMutantSave.saveResultMutant(new Mutant(Arrays.toString(dna), false));
             return false;
 
         }else{
