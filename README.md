@@ -1,4 +1,4 @@
-PROYECTO UNIVERSIDAD
+#PROYECTO UNIVERSIDAD
 El microservicio dnaevaluator expone dos servicios rest. Su estructura de carpetas consta de 3 capas, implementando así una arquitectura limpia donde la capa de dominio es independiente del framework
 
 application: En esta capa se encuentra el controller(MutantController) que es la puerta de entrada o adaptador primario, obtiene los datos para enviarlos a la capa de dominio.
@@ -57,6 +57,26 @@ Content-Type: application/json
 
 { "count_mutant_dna": 5, "count_human_dna": 8, "ratio": 0.63 }
 
-#COBERTURA DE PRUEBAS
+#AUTOMATIZACIÓN DE PRUEBAS
 
-El porcentaje total de lineas de código cubieras con pruebas initarias es del 88%
+El porcentaje total de lineas de código cubiertas con pruebas unitarias es del 92%
+
+#Ejecutar pruebas locales
+
+Puede realizarse de dos maneras:
+
+1. abrir la consola en intellij y ejecutar el comando ./gradlew clean test, este comando primero realizara una limpieza del proyecto y luego ejecutara las pruebas si el resultado fue exitoso se mostrara el mensaje "BUILd SUCCESSFUL"
+
+2. Buscar en las tareas de gradle task - verificación -jacocoTestReport, esta opción nos entregara un informe detallado de la cobertura de pruebas en cada uno de los archivos, el informe lo encuentra en la ruta build - reports - jacoco - test - html - index html, se abre en un navegador para ver mejor los resultados
+
+#Ejecutar pruebas Remotas
+
+Dado el archivo test.yml que creamos para correr las pruebas automatizadas, cuando se suba cualquier commit, dirigite github - actions - e inmediatamente veremos como se ejecuta el pipiline, se configura todo el entorno para correr las pruebas e internamente se corre el comando ./gradlew test, al final entrega el resultado, si fue exitoso o fallido.
+
+Este archivo define un flujo de trabajo (workflow) que se ejecuta automáticamente cuando se cumplen ciertas condiciones en tu repositorio, tales como 
+
+push: Cuando se envían cambios a una rama del repositorio.
+
+pull_request: Cuando se abre o actualiza un pull request.
+    
+
